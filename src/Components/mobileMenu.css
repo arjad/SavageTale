@@ -1,0 +1,56 @@
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: #0b0b0b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.3s ease;
+  opacity: .85;
+}
+
+.menu-content {
+  display: flex;
+  gap: 2rem;
+  font-size: 3rem;
+}
+
+.menu-content a {
+  color: white;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.menu-content a:hover {
+  transform: scale(1.1);
+  color: #1da1f2;
+}
+
+.menu-content a:last-child:hover {
+  color: #5865f2;
+}
+
+/* close button */
+.close-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

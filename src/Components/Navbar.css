@@ -1,0 +1,107 @@
+/* floating icons before scroll */
+.floating-icons {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 1.8rem;
+  z-index: 2000;
+}
+
+.floating-icons a {
+  color: white;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.floating-icons a:hover {
+  transform: scale(1.1);
+  color: #1da1f2;
+}
+
+/* navbar (hidden until scroll) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: #0d0c1d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s;
+  z-index: 1000;
+}
+
+.navbar.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navbar-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.logo img {
+  position: relative;
+  top: 20px;
+  height: 100px;
+  width: auto;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.links a {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+
+/* Navbar updated */
+
+/* floating icons */
+.floating-icons {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+  font-size: 1.8rem;
+  z-index: 2000;
+  align-items: center;
+}
+
+.desktop-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.mobile-hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .desktop-icons {
+    display: none;
+  }
+  .mobile-hamburger {
+    display: block;
+  }
+}
