@@ -1,5 +1,6 @@
 {
-  "name": "savagetale-app",
+  "name": "SavageTale",
+  "description": "React + Vite project for SavageTale website",
   "private": true,
   "version": "0.0.0",
   "type": "module",

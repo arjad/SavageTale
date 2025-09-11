@@ -8,18 +8,6 @@
         contain-intrinsic-size: 3000px 1500px;
       }
 
-
-
-/* Hide loading  and its elements fron content*/
-/* .custom-loading-scr,
-.header-loading-scr,
-.img-loading-logo,
-.loading-text {
-  display: none !important;
-} */
-
-
-
 /* Fullscreen overlay */
 .loading-screen {
   position: fixed;
