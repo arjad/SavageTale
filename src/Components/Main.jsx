@@ -6,10 +6,7 @@ import Footer from "./Footer";
 const Main = () => {
   const [page, setPage] = useState(null);
   const contentRef = useRef(null); // 🔹 scope jQuery to the injected content
-  // // Toggle body class while loading
-  // useEffect(() => {
-  //   document.body.classList.toggle("loading", loading);
-  // }, [loading]);
+
 
   // Fetch WordPress content
   useEffect(() => {
