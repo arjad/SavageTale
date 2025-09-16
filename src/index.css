@@ -82,3 +82,34 @@ html {
 footer-index{
   z-index: 1000;
 }
+
+.section-content {
+  background: rgb(20, 17, 34);
+  overflow: hidden;
+}
+.gap-element.clearfix:nth-child(7) {
+  background: rgb(20, 17, 34);
+}
+.gap-element.clearfix:nth-child(3) {
+  background: rgb(20, 17, 34);
+  border: 5px solid red;
+}
+div.col.small-12.large-12{
+  padding: 0px!important;
+}
+.tower-bottom-rock .img-inner.dark {
+  margin: -14% 0px -5% -10% !important;
+}
+@media (min-width: 1200px){
+  .floating-icons {
+    margin-right: 7rem;;
+  }
+}
+
+.floating-icons a, .navbar.show a {
+  font-family: sans-serif;
+  font-size: 1rem !important;
+}
+.back-to-top {
+  padding-top: 4px;
+}

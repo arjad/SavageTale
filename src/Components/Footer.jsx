@@ -27,7 +27,7 @@ const Footer = () => {
 
       <a
         href="#top"
-        class="back-to-top button icon invert plain fixed bottom z-1 is-outline hide-for-medium circle active"
+        class="back-to-top button pt-1 icon invert plain fixed bottom z-1 is-outline hide-for-medium circle active"
         id="top-link"
         aria-label="Go to top"
       >

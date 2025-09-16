@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { FaTwitter, FaDiscord, FaBars } from "react-icons/fa";
+import { FaTwitter, FaBars } from "react-icons/fa";
+import { IoLogoDiscord } from "react-icons/io5";
 import "./Navbar.css";
 import logo from "../assets/NEW_LogoFlag_001.png";
 import MobileMenu from "./mobileMenu";
@@ -38,7 +39,7 @@ export default function Navbar() {
                 <FaTwitter />
               </a>
               <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
-                <FaDiscord />
+                <IoLogoDiscord />
               </a>
             </div>
           ) : (
@@ -67,7 +68,7 @@ export default function Navbar() {
                     <FaTwitter />
                   </a>
                   <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
-                    <FaDiscord />
+                    <IoLogoDiscord />
                   </a>
                 </>
               ) : (
