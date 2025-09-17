@@ -52,36 +52,33 @@ export default function Navbar() {
           )}
         </div>
       )}
-
-      {/* Navbar on scroll (desktop = logo+icons, mobile = logo+hamburger) */}
-      {show && (
-        <nav className="navbar show">
-          <div className="navbar-container">
-            <div className="logo">
-              <img src={logo} alt="Savage Tale Logo" />
-            </div>
-
-            <div className="links">
-              {!isMobile ? (
-                <>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <FaTwitter />
-                  </a>
-                  <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
-                    <IoLogoDiscord />
-                  </a>
-                </>
-              ) : (
-                !menuOpen && (
-                  <div className="mobile-hamburger" onClick={() => setMenuOpen(true)}>
-                    <FaBars />
-                  </div>
-                )
-              )}
-            </div>
+      <nav className={`navbar ${show ? "show" : ""}`}>
+        <div className="navbar-container">
+          <div className="logo">
+            <img src={logo} alt="Savage Tale Logo" />
           </div>
-        </nav>
-      )}
+
+          <div className="links">
+            {!isMobile ? (
+              <>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <FaTwitter />
+                </a>
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
+                  <IoLogoDiscord />
+                </a>
+              </>
+            ) : (
+              !menuOpen && (
+                <div className="mobile-hamburger" onClick={() => setMenuOpen(true)}>
+                  <FaBars />
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </nav>
+
 
       {/* Mobile fullscreen menu */}
       <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />

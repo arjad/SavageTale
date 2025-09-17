@@ -50,6 +50,71 @@ const Main = () => {
     });
   }, [page]);
 
+  useEffect(() => {
+    if (!page || !contentRef.current) return;
+  
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const containers = contentRef.current.querySelectorAll(
+        ".row.row-collapse.align-bottom.align-center.is-full-height.banner-layer"
+      );
+  
+      containers.forEach(container => {
+        if (!container) return;
+  
+        const $els = container.querySelectorAll("[data-parallax]");
+        $els.forEach(el => {
+          const speed = parseFloat(el.getAttribute("data-parallax")) || 0;
+          el.style.transform = `translateY(${-scrollY * speed * 0.1}px)`;
+        });
+  
+        const $fades = container.querySelectorAll("[data-parallax-fade]");
+        $fades.forEach(el => {
+          el.style.opacity = 1 - scrollY / 400;
+        });
+      });
+  
+      const crownContainers = contentRef.current.querySelectorAll("[data-parallax]");
+      crownContainers.forEach(container => {
+        if (container.querySelector(".intro-crown")) {
+          const speed = parseFloat(container.getAttribute("data-parallax")) || 0;
+          container.style.transform = `translateY(${-scrollY * speed * 0.1}px)`;
+  
+          if (container.hasAttribute("data-parallax-fade")) {
+            container.style.opacity = 1 - scrollY / 400;
+          }
+        } else if (container.querySelector(".intro-flag")) {
+          const speed = parseFloat(container.getAttribute("data-parallax")) || 0;
+          container.style.transform = `translateY(${-scrollY * speed * 0.1}px)`;
+  
+          if (container.hasAttribute("data-parallax-fade")) {
+            container.style.opacity = 1 - scrollY / 400;
+          }
+        }
+      });
+  
+      const crownChildren = contentRef.current.querySelectorAll(
+        ".intro-flag[data-parallax], .intro-crown[data-parallax]"
+      );
+      
+      crownChildren.forEach(el => {
+        const speed = parseFloat(el.getAttribute("data-parallax")) || 0;
+        el.style.transform = `translateY(${-scrollY * speed * 0.1}px)`;
+  
+        if (el.hasAttribute("data-parallax-fade")) {
+          el.style.opacity = 1 - scrollY / 400;
+        }
+      });
+    };
+  
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+  
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [page]);
+
+
+
   return (
     <div>
       <Navbar />
