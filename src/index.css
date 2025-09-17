@@ -132,3 +132,40 @@ div.col.small-12.large-12{
   justify-content: space-between;
 }
 
+@media (max-width: 600px) {
+  .carousel-row .banner {
+    width: 70%; /* center image */
+    margin: 0px 10px;
+  }
+  .slider .banner {
+    margin-left: 10px;
+  }
+  .carousel-row .flickity-slider > .banner.is-selected {
+    transform: scale(1);
+    opacity: 1;
+    z-index: 2;
+  }
+  .carousel-row .flickity-slider > .banner:not(.is-selected) {
+    transform: scale(0.7);
+    opacity: 0.7;
+    z-index: 1;
+  }
+  .slider-wrapper.relative.character-slider.show-for-small .slider .banner {
+    width: 80%;
+  }
+  .flickity-slider > * {
+    max-width: 260px!important;
+  }
+  @keyframes scrollBanner {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-500%);
+    }
+  }
+  .slider.slider-nav-dots-simple.slider-nav-circle.slider-nav-normal.slider-nav-light.slider-nav-outside.slider-style-focus {
+    animation: scrollBanner 10s linear infinite;
+    overflow: visible;
+  }
+}
