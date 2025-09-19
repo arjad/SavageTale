@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import $ from "jquery";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Flickity from "flickity";
+import "flickity/css/flickity.css";
+import "../index.css";
 
 const Main = () => {
   const [page, setPage] = useState(null);
@@ -50,6 +53,7 @@ const Main = () => {
     });
   }, [page]);
 
+  // Parallax scroll effects
   useEffect(() => {
     if (!page || !contentRef.current) return;
   
@@ -113,7 +117,99 @@ const Main = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [page]);
 
+  // Flickity slider initialization
+  useEffect(() => {
+    if (!page || !contentRef.current) return;
+    let rafId = null;
+    let timeoutId = null;
+    let flktyInstance = null;
 
+    const initFlickity = () => {
+      const sliderEl = contentRef.current.querySelector(
+        ".slider[data-flickity-options]"
+      );
+      if (!sliderEl) {
+        console.warn("[Flickity] slider element not found");
+        return;
+      }
+
+      // Skip if Flickity already initialized
+      if (sliderEl.classList.contains("flickity-enabled") || sliderEl._flkty) {
+        console.log("[Flickity] already initialized, skipping");
+        return;
+      }
+
+      const raw = sliderEl.getAttribute("data-flickity-options") || "{}";
+      let options = {};
+      try {
+        options = JSON.parse(raw.replace(/&quot;/g, '"'));
+      } catch (e) {
+        console.warn("[Flickity] parse options failed, using defaults", e);
+        options = {};
+      }
+
+      const finalOptions = {
+        cellSelector: ".banner",
+        contain: true,
+        pageDots: true,
+        prevNextButtons: true,
+        ...options,
+      };
+
+      try {
+        flktyInstance = new Flickity(sliderEl, finalOptions);
+        sliderEl._flkty = flktyInstance;
+        console.log("[Flickity] initialized", finalOptions);
+      } catch (e) {
+        console.error("[Flickity] init error", e);
+        return;
+      }
+
+      // Wait for all images to load then force resize
+      const imgs = Array.from(sliderEl.querySelectorAll("img"));
+      if (imgs.length === 0) {
+        flktyInstance.resize();
+        return;
+      }
+
+      let loaded = 0;
+      const onImg = () => {
+        loaded += 1;
+        if (loaded >= imgs.length) {
+          flktyInstance.resize();
+        }
+      };
+
+      imgs.forEach((img) => {
+        if (img.complete) {
+          onImg();
+        } else {
+          img.addEventListener("load", onImg, { once: true });
+          img.addEventListener("error", onImg, { once: true });
+        }
+      });
+    };
+
+    rafId = requestAnimationFrame(() => {
+      timeoutId = setTimeout(initFlickity, 50);
+    });
+
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      if (timeoutId) clearTimeout(timeoutId);
+
+      const sliderEl =
+        contentRef.current?.querySelector(".slider[data-flickity-options]");
+      if (sliderEl && sliderEl._flkty && sliderEl._flkty.destroy) {
+        try {
+          sliderEl._flkty.destroy();
+        } catch (e) {
+          console.warn("[Flickity] destroy failed", e);
+        }
+        sliderEl._flkty = null;
+      }
+    };
+  }, [page]);
 
   return (
     <div>
