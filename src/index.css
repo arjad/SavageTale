@@ -161,8 +161,8 @@ div.col.small-12.large-12{
       min-height: 1em !important;
   }
 }
-.section.z-index-10 > .section-content.relative { 
-  height: 120vh !important;
+.section.z-index-10 > .section-content.relative:has(> .story-pattern) {
+  height: 160vh !important;
   background: transparent !important;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 93.75% var(--zigzag-bottom-top), 87.5% 100%, 81.25% var(--zigzag-bottom-top), 75% 100%, 68.75% var(--zigzag-bottom-top), 62.5% 100%, 56.25% var(--zigzag-bottom-top), 50% 100%, 43.75% var(--zigzag-bottom-top), 37.5% 100%, 31.25% var(--zigzag-bottom-top), 25% 100%, 18.75% var(--zigzag-bottom-top), 12.5% 100%, 6.25% var(--zigzag-bottom-top), 0 100%) !important;
 }
