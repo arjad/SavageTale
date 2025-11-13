@@ -134,7 +134,30 @@ div.col.small-12.large-12{
   align-items: center;
   justify-content: space-between;
 }
+:root {
+  --zigzag-top-bottom: 4% !important;
+}
+.section.z-index-9 {
+  z-index: 10;
+  margin-top: -54vh;
+  clip-path: polygon(
+    0% 100%, 100% 100%, 100% 0%,
+    93.75% var(--zigzag-top-bottom),
+    87.5% 0%, 81.25% var(--zigzag-top-bottom),
+    75% 0%, 68.75% var(--zigzag-top-bottom),
+    62.5% 0%, 56.25% var(--zigzag-top-bottom),
+    50% 0%, 43.75% var(--zigzag-top-bottom),
+    37.5% 0%, 31.25% var(--zigzag-top-bottom),
+    25% 0%, 18.75% var(--zigzag-top-bottom),
+    12.5% 0%, 6.25% var(--zigzag-top-bottom), 0 0%
+  );
 
+}
+@media (max-width: 400px) {
+  .section.z-index-9 {
+    margin-top: -28vh;
+  }
+}
 @media (max-width: 600px) {
   .banner {
     margin-left:.6rem !important;
@@ -167,18 +190,40 @@ div.col.small-12.large-12{
 @media (min-width: 600px) and (max-width: 1200px) {
   .section.z-index-9 {
     margin-top: -45vh;
+    clip-path: polygon(
+      0% 100%, 100% 100%, 100% 0%,
+      93.75% calc(var(--zigzag-top-bottom) * 0.5),
+      87.5% 0%, 81.25% calc(var(--zigzag-top-bottom) * 0.5),
+      75% 0%, 68.75% calc(var(--zigzag-top-bottom) * 0.5),
+      62.5% 0%, 56.25% calc(var(--zigzag-top-bottom) * 0.5),
+      50% 0%, 43.75% calc(var(--zigzag-top-bottom) * 0.5),
+      37.5% 0%, 31.25% calc(var(--zigzag-top-bottom) * 0.5),
+      25% 0%, 18.75% calc(var(--zigzag-top-bottom) * 0.5),
+      12.5% 0%, 6.25% calc(var(--zigzag-top-bottom) * 0.5), 0 0%
+    );
   }
 }
 @media (min-width: 1201px) and (max-width: 1500px) {
   .section.z-index-9 {
     margin-top: -45vh;
+    clip-path: polygon(
+      0% 100%, 100% 100%, 100% 0%,
+      93.75% calc(var(--zigzag-top-bottom) * 0.5),
+      87.5% 0%, 81.25% calc(var(--zigzag-top-bottom) * 0.5),
+      75% 0%, 68.75% calc(var(--zigzag-top-bottom) * 0.5),
+      62.5% 0%, 56.25% calc(var(--zigzag-top-bottom) * 0.5),
+      50% 0%, 43.75% calc(var(--zigzag-top-bottom) * 0.5),
+      37.5% 0%, 31.25% calc(var(--zigzag-top-bottom) * 0.5),
+      25% 0%, 18.75% calc(var(--zigzag-top-bottom) * 0.5),
+      12.5% 0%, 6.25% calc(var(--zigzag-top-bottom) * 0.5), 0 0%
+    );
   }
 }
-@media (min-width: 1501px) and (max-width: 2500px) {
+/* @media (min-width: 1501px) and (max-width: 2500px) {
   .section.z-index-9 {
     margin-top: 9vh;    
   }
-}
+} */
 @media (min-width: 2500px) {
   .section.z-index-9 {
     margin-top: -99vh;
@@ -186,24 +231,6 @@ div.col.small-12.large-12{
 }
 .section.z-index-10 > .section-content.relative:has(> .story-pattern) {
   height: 160vh !important;
-}
-:root {
-  --zigzag-top-bottom: 4% !important;
-}
-.section.z-index-9 {
-  z-index: 10;
-  margin-top: -54vh;
-  clip-path: polygon(
-    0% 100%, 100% 100%, 100% 0%,
-    93.75% var(--zigzag-top-bottom),
-    87.5% 0%, 81.25% var(--zigzag-top-bottom),
-    75% 0%, 68.75% var(--zigzag-top-bottom),
-    62.5% 0%, 56.25% var(--zigzag-top-bottom),
-    50% 0%, 43.75% var(--zigzag-top-bottom),
-    37.5% 0%, 31.25% var(--zigzag-top-bottom),
-    25% 0%, 18.75% var(--zigzag-top-bottom),
-    12.5% 0%, 6.25% var(--zigzag-top-bottom), 0 0%
-  );
 }
 .story-pattern {
   height: 75rem;
