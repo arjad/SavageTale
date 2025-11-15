@@ -139,7 +139,7 @@ div.col.small-12.large-12{
 }
 .section.z-index-9 {
   z-index: 10;
-  margin-top: -54vh;
+  margin-top: -583.2px;
   clip-path: polygon(
     0% 100%, 100% 100%, 100% 0%,
     93.75% var(--zigzag-top-bottom),
@@ -155,7 +155,7 @@ div.col.small-12.large-12{
 }
 @media (max-width: 400px) {
   .section.z-index-9 {
-    margin-top: -28vh;
+    margin-top: -302.4px;
   }
 }
 @media (max-width: 600px) {
@@ -184,12 +184,12 @@ div.col.small-12.large-12{
       min-height: 1em !important;
   }
   .section.z-index-9 {
-    margin-top: -48vh;
+    margin-top: -518.4px;
   }
 }
 @media (min-width: 600px) and (max-width: 1200px) {
   .section.z-index-9 {
-    margin-top: -45vh;
+    margin-top: -486px;
     clip-path: polygon(
       0% 100%, 100% 100%, 100% 0%,
       93.75% calc(var(--zigzag-top-bottom) * 0.5),
@@ -205,7 +205,7 @@ div.col.small-12.large-12{
 }
 @media (min-width: 1201px) and (max-width: 1500px) {
   .section.z-index-9 {
-    margin-top: -45vh;
+    margin-top: -486px;
     clip-path: polygon(
       0% 100%, 100% 100%, 100% 0%,
       93.75% calc(var(--zigzag-top-bottom) * 0.5),
@@ -224,13 +224,8 @@ div.col.small-12.large-12{
     margin-top: 9vh;    
   }
 } */
-@media (min-width: 2500px) {
-  .section.z-index-9 {
-    margin-top: -99vh;
-  }
-}
 .section.z-index-10 > .section-content.relative:has(> .story-pattern) {
-  height: 160vh !important;
+  height: 1680px !important;
 }
 .story-pattern {
   height: 75rem;
